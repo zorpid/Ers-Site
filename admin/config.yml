@@ -7,11 +7,11 @@ public_folder: "/uploads"
 
 collections:
   - name: "pages"
-    label: "Innehåll"
+    label: "Pages"
     files:
-      - label: "Hemsida"
+      - label: "Homepage"
         name: "homepage"
         file: "content/homepage.md"
         fields:
-          - { label: "Titel", name: "title", widget: "string" }
-          - { label: "Innehåll", name: "body", widget: "markdown" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
