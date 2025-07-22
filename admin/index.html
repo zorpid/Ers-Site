@@ -5,22 +5,26 @@
     <title>Content Manager</title>
   </head>
   <body>
-    <!-- Identity Widget -->
+    <!-- Netlify Identity Widget -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-   <script>
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", (user) => {
-      if (!user) {
+
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", (user) => {
+          if (!user) {
+            // Visa inloggningsfönster för användare
+            window.netlifyIdentity.open("login");
+          }
+        });
+
         window.netlifyIdentity.on("login", () => {
-          // Bara ladda om sidan, inte redirecta
+          // Ladda om admin när inloggning är klar
           window.location.reload();
         });
-      }
-    });
-    window.netlifyIdentity.init();
-  }
-</script>
 
+        window.netlifyIdentity.init();
+      }
+    </script>
 
     <!-- Netlify CMS -->
     <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
