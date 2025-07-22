@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Complete Signup</title>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+  <script>
+    window.netlifyIdentity.on('init', (user) => {
+      if (!user) {
+        // Visa signup/login-popup om användare inte är inloggad
+        netlifyIdentity.open();
+      } else {
+        // När användare är inloggad, skicka till admin
+        window.location.href = "/admin/";
+      }
+    });
+
+    netlifyIdentity.on('login', () => {
+      window.location.href = "/admin/";
+    });
+
+    netlifyIdentity.init();
+  </script>
+</body>
+</html>
