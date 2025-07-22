@@ -2,8 +2,6 @@ backend:
   name: github
   repo: zorpid/Ers-Site
   branch: main
-  base_url: https://api.netlify.com
-  site_id: 284bbda1-8eaf-47da-a127-e0d2d3109ece
 
 
 media_folder: "static/uploads"
