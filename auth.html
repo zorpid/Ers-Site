@@ -9,26 +9,25 @@
   <h2>Authenticating, please wait...</h2>
  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script>
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", (user) => {
-        if (!user) {
-          // Visa login/signup-formulär
-          window.netlifyIdentity.open("signup");
-        } else {
-          // Om användare redan är inloggad – gå till CMS
+    document.addEventListener("DOMContentLoaded", function () {
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", (user) => {
+          if (!user) {
+            window.netlifyIdentity.open("signup");
+          } else {
+            window.location.href = "/admin/";
+          }
+        });
+
+        window.netlifyIdentity.on("login", () => {
           window.location.href = "/admin/";
-        }
-      });
+        });
 
-      window.netlifyIdentity.on("login", () => {
-        // Efter inloggning, vidare till admin
-        window.location.href = "/admin/";
-      });
-
-      window.netlifyIdentity.init();
-    } else {
-      document.body.innerHTML = "Netlify Identity widget failed to load.";
-    }
+        window.netlifyIdentity.init();
+      } else {
+        document.body.innerHTML = "Netlify Identity widget failed to load.";
+      }
+    });
   </script>
 </body>
 </html>
