@@ -2,9 +2,12 @@ backend:
   name: github
   repo: zorpid/Ers-Site
   branch: main
-  base_url: https://api.netlify.com/auth
+  base_url: https://api.netlify.com  # ✅ Inget "/auth" här
+  auth_endpoint: auth/done           # ✅ Detta behövs separat
+
 media_folder: "static/uploads"
 public_folder: "/uploads"
+
 collections:
   - name: "pages"
     label: "Pages"
